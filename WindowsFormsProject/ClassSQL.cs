@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,17 +17,13 @@ namespace WindowsFormsProject
         {
             DataSet ds;
             SqlDataAdapter adapter;
-            SqlCommandBuilder commandBuilder;
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AllowUserToAddRows = false;
 
-            string connectionString = @"Data Source=COMPUTER;Initial Catalog=Test2;Integrated Security=True";
-            // Создание подключения
-            //SqlConnection connection = new SqlConnection(connectionString);
+            string connectionString = ConfigurationManager.AppSettings["SQLConnect"];
             try
             {
-                // Открываем подключение
                 string sqlExpression = @"select d.name, e.salart_sum from (select e.department_id, sum([salary]) as salart_sum from employee e group by e.department_id) AS e
                 left join department d on d.id = e.department_id";
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -42,13 +39,7 @@ namespace WindowsFormsProject
             }
             catch (SqlException ex)
             {
-                //Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                // закрываем подключение
-                //connection.Close();
-//                Console.WriteLine("Подключение закрыто...");
+                statusStrip.Text = ex.Message;
             }
 
         }
@@ -56,20 +47,16 @@ namespace WindowsFormsProject
         {
             DataSet ds;
             SqlDataAdapter adapter;
-            SqlCommandBuilder commandBuilder;
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AllowUserToAddRows = false;
 
-            string connectionString = @"Data Source=COMPUTER1;Initial Catalog=Test2;Integrated Security=True";
-            // Создание подключения
-            //SqlConnection connection = new SqlConnection(connectionString);
+            string connectionString = ConfigurationManager.AppSettings["SQLConnect"];
             try
             {
-                // Открываем подключение
                 string sqlExpression = @"select emp1.*, e.id from (select department_id, max([salary]) salary from employee
-group by department_id) as emp1
-left join employee e on e.department_id = emp1.department_id and e.salary = emp1.salary";
+                                        group by department_id) as emp1
+                                        left join employee e on e.department_id = emp1.department_id and e.salary = emp1.salary";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -83,16 +70,8 @@ left join employee e on e.department_id = emp1.department_id and e.salary = emp1
             }
             catch (SqlException ex)
             {
-                //Console.WriteLine(ex.Message);
                 statusStrip.Text = ex.Message;
             }
-            finally
-            {
-                // закрываем подключение
-                //connection.Close();
-//                Console.WriteLine("Подключение закрыто...");
-            }
-
         }
         public void SaleryOrderBy(DataGridView  dataGridView1, ToolStripStatusLabel statusStrip)
         {
@@ -103,15 +82,15 @@ left join employee e on e.department_id = emp1.department_id and e.salary = emp1
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AllowUserToAddRows = false;
 
-            string connectionString = @"Data Source=COMPUTER;Initial Catalog=Test2;Integrated Security=True";
+            string connectionString = ConfigurationManager.AppSettings["SQLConnect"];
             // Создание подключения
             //SqlConnection connection = new SqlConnection(connectionString);
             try
             {
                 // Открываем подключение
                 string sqlExpression = @"select d.name, e.name, e.salary  from employee e
-left join department d on e.department_id = d.id
-order by department_id, salary desc";
+                                            left join department d on e.department_id = d.id
+                                            order by department_id, salary desc";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -125,15 +104,8 @@ order by department_id, salary desc";
             }
             catch (SqlException ex)
             {
-                //Console.WriteLine(ex.Message);
+                statusStrip.Text = ex.Message;
             }
-            finally
-            {
-                // закрываем подключение
-                //connection.Close();
-//                Console.WriteLine("Подключение закрыто...");
-            }
-
         }
     }
 }
