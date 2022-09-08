@@ -1,0 +1,10 @@
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\bin\Debug\WindowsFormsProject.exe.config
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\bin\Debug\WindowsFormsProject.exe
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\bin\Debug\WindowsFormsProject.pdb
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.csprojAssemblyReference.cache
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.Properties.Resources.resources
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.csproj.GenerateResource.cache
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.csproj.CoreCompileInputs.cache
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.exe
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.pdb
+C:\Users\kosta\source\repos\WindowsFormsProject\WindowsFormsProject\obj\Debug\WindowsFormsProject.Form1.resources
